@@ -1,0 +1,2165 @@
+  [1m[35m (13.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (12.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DeviseCreateUsers (20170205000251)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170205000251"]]
+  [1m[35m (15.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-02-05 00:05:24 UTC], ["updated_at", 2017-02-05 00:05:24 UTC]]
+  [1m[35m (13.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.4ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:05:38 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/railties-5.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/railties-5.0.1/lib/rails/templates/rails/welcome/index.html.erb (12.1ms)
+Completed 200 OK in 77ms (Views: 41.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-02-04 16:05:55 -0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.2ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (156.5ms)
+Completed 200 OK in 1062ms (Views: 1039.2ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-02-04 16:06:03 -0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.1ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 92ms (Views: 91.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-02-04 16:06:04 -0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.0ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 97ms (Views: 92.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/password/new" for 127.0.0.1 at 2017-02-04 16:06:09 -0800
+Processing by Devise::PasswordsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/passwords/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.1ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/passwords/new.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 102ms (Views: 85.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:14:57 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/railties-5.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/railties-5.0.1/lib/rails/templates/rails/welcome/index.html.erb (8.7ms)
+Completed 200 OK in 53ms (Views: 33.1ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePosts (20170205001539)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170205001539"]]
+  [1m[35m (16.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:18:03 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 7224ms (Views: 7200.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:18:36 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 136ms (Views: 128.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:18:37 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 174ms (Views: 162.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:18:38 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 151ms (Views: 138.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:18:39 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 166ms (Views: 154.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:18:39 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 166ms (Views: 154.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:20:26 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 170ms (Views: 159.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:20:28 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 204ms (Views: 188.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:20:29 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 166ms (Views: 159.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:20:29 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 158ms (Views: 145.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:20:30 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 180ms (Views: 170.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-02-04 16:21:12 -0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.1ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (75.5ms)
+Completed 200 OK in 240ms (Views: 221.3ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:21:33 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 166ms (Views: 156.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-02-04 16:23:37 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.1ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (83.6ms)
+Completed 200 OK in 779ms (Views: 734.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-02-04 16:23:42 -0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (4.1ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (14.4ms)
+Completed 200 OK in 214ms (Views: 213.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-02-04 16:23:43 -0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.9ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 162ms (Views: 161.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-02-04 16:23:44 -0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.3ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (17.6ms)
+Completed 200 OK in 184ms (Views: 181.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:23:45 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 151ms (Views: 144.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-02-04 16:25:52 -0800
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 162ms (Views: 153.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:26:23 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 152ms (Views: 143.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-02-04 16:26:33 -0800
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 155ms (Views: 147.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:26:36 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 149ms (Views: 142.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:27:25 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 144ms (Views: 138.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-02-04 16:27:32 -0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.1ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (18.4ms)
+Completed 200 OK in 166ms (Views: 162.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-02-04 16:27:35 -0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.0ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 164ms (Views: 163.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-02-04 16:27:43 -0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.8ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 164ms (Views: 163.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-02-04 16:28:03 -0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.7ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 203ms (Views: 202.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-02-04 16:28:05 -0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.8ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 157ms (Views: 156.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-02-04 16:28:06 -0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.8ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 140ms (Views: 138.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-02-04 16:28:07 -0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.7ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 144ms (Views: 142.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-02-04 16:28:07 -0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.8ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 149ms (Views: 147.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-02-04 16:28:29 -0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.7ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 149ms (Views: 148.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-02-04 16:28:31 -0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (2.7ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 246ms (Views: 241.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-02-04 16:28:31 -0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.7ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 149ms (Views: 148.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-02-04 16:28:56 -0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.8ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 36ms (Views: 35.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-02-04 16:29:04 -0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.8ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 41ms (Views: 39.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-02-04 16:34:14 -0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.8ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 190ms (Views: 189.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-02-04 16:34:19 -0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.7ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 142ms (Views: 141.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:34:20 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 135ms (Views: 128.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:34:34 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 145ms (Views: 135.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:34:59 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 147ms (Views: 140.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:35:01 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 141ms (Views: 133.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:35:01 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 127ms (Views: 119.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:37:05 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 766ms (Views: 741.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-02-04 16:37:07 -0800
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 161ms (Views: 149.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-02-04 16:37:08 -0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.2ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (82.4ms)
+Completed 200 OK in 240ms (Views: 222.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-02-04 16:37:09 -0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.3ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 176ms (Views: 174.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-02-04 16:37:19 -0800
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 165ms (Views: 156.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-02-04 16:37:28 -0800
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 158ms (Views: 148.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-02-04 16:37:57 -0800
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 165ms (Views: 158.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:37:58 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 175ms (Views: 166.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-02-04 16:41:54 -0800
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 184ms (Views: 165.1ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-02-04 16:42:24 -0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.8ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 184ms (Views: 172.0ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-02-04 16:42:37 -0800
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yqlP600RPYN968Dq6oDg6hXqPmdFtbJc9x1KjbJu4+mopVS3X2/quoiMO/3ZILwQ2gbXo+g5l3ksTU1IXXpMAQ==", "user"=>{"email"=>"nsuaysom@g.hmc.edu", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "nsuaysom@g.hmc.edu"], ["LIMIT", 1]]
+  [1m[35mSQL (2.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "nsuaysom@g.hmc.edu"], ["encrypted_password", "$2a$11$y/5Zd/ICf4tQ9hqZ1se9m.dMM2xI6zYWrpjfOR47g4Q0Hp/vYHcOm"], ["created_at", 2017-02-05 00:42:37 UTC], ["updated_at", 2017-02-05 00:42:37 UTC]]
+  [1m[35m (18.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", 2017-02-05 00:42:37 UTC], ["last_sign_in_at", 2017-02-05 00:42:37 UTC], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", 2017-02-05 00:42:37 UTC], ["id", 1]]
+  [1m[35m (17.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 333ms (ActiveRecord: 40.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:42:37 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 159ms (Views: 148.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:45:04 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.3ms)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/mnt/c/Users/natch/Desktop/RubyInstagram/instagramAppNew/app/views/layouts/application.html.erb:61: syntax error, unexpected keyword_ensure, expecting keyword_end
+          ensure
+                ^):
+  
+app/views/layouts/application.html.erb:61: syntax error, unexpected keyword_ensure, expecting keyword_end
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.6ms)
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (130.2ms)
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:45:46 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 151ms (Views: 144.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:45:48 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 143ms (Views: 134.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-02-04 16:45:49 -0800
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (1.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 146ms (Views: 139.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:45:50 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 182ms (Views: 158.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:46:58 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 151ms (Views: 143.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2017-02-04 16:46:59 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered collection of /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [24 times] (5.8ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (8.3ms)
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (120.5ms)
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:47:45 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 165ms (Views: 158.4ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-02-04 16:47:46 -0800
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"SRpHDG/TlUoW0KzAEn5ptGRPaLvKZ2PJKcP301WlModGYEgbI/ImtZPUPD1IAHgWt2rMpUKLjGdsflMwSvYfeg=="}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 18ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:47:46 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 128ms (Views: 120.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-02-04 16:47:48 -0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.3ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 159ms (Views: 157.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:47:49 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 155ms (Views: 143.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-02-04 16:48:25 -0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.8ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 156ms (Views: 154.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-02-04 16:48:27 -0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.8ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 154ms (Views: 153.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:48:29 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 156ms (Views: 149.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-02-04 16:48:30 -0800
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 127ms (Views: 121.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-02-04 16:48:30 -0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (2.1ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 138ms (Views: 137.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-02-04 16:48:31 -0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.9ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 144ms (Views: 142.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:49:07 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 839ms (Views: 816.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:49:09 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 126ms (Views: 120.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-02-04 16:49:10 -0800
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (43.4ms)
+Completed 200 OK in 198ms (Views: 175.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-02-04 16:49:19 -0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.1ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (34.4ms)
+Completed 200 OK in 190ms (Views: 174.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-02-04 16:49:48 -0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.9ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 162ms (Views: 161.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:49:49 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 245ms (Views: 237.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-02-04 16:49:50 -0800
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 124ms (Views: 118.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-02-04 16:49:50 -0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.9ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 140ms (Views: 139.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-02-04 16:49:51 -0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (5.4ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (14.4ms)
+Completed 200 OK in 143ms (Views: 141.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:50:04 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 148ms (Views: 142.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:50:04 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 141ms (Views: 135.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:50:05 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 272ms (Views: 253.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-02-04 16:50:05 -0800
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 130ms (Views: 124.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-02-04 16:50:06 -0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.2ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 160ms (Views: 159.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-02-04 16:50:06 -0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.8ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 144ms (Views: 143.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-02-04 16:50:15 -0800
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 184ms (Views: 173.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:50:16 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 135ms (Views: 129.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-02-04 16:50:16 -0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.3ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (16.5ms)
+Completed 200 OK in 189ms (Views: 187.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:50:30 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 728ms (Views: 704.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-02-04 16:51:22 -0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.9ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (69.1ms)
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-02-04 16:51:22 -0800
+Completed 200 OK in 266ms (Views: 249.7ms | ActiveRecord: 2.1ms)
+
+
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.0ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 163ms (Views: 162.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-02-04 16:53:04 -0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.0ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 163ms (Views: 161.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-02-04 16:53:05 -0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.2ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 150ms (Views: 149.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-02-04 16:53:06 -0800
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 159ms (Views: 141.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:53:07 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 142ms (Views: 136.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-02-04 16:53:08 -0800
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 184ms (Views: 177.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-02-04 16:53:08 -0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (2.4ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (35.7ms)
+Completed 200 OK in 327ms (Views: 325.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-02-04 16:53:09 -0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.9ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 143ms (Views: 141.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-02-04 16:53:27 -0800
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tW5B9AB1E3O8xM2VuyD1ptu8DOetwyR2Eh9sd3Nk7cAHwRj9+/myWfy/Q23WaNttWFQY9LH92ThUoJgYmz2GzA==", "user"=>{"email"=>"nsuaysom@g.hmc.edu", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "nsuaysom@g.hmc.edu"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", 2017-02-05 00:53:28 UTC], ["sign_in_count", 2], ["updated_at", 2017-02-05 00:53:28 UTC], ["id", 1]]
+  [1m[35m (16.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 230ms (ActiveRecord: 18.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:53:28 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 150ms (Views: 142.8ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-02-04 16:53:36 -0800
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"uj4WcOh+yhObaQUHjZ08ZnIVaYXRTEMgT+XKJ6QyFVc9ig1CGw9W+WzipRkcKPpHO6hk859slNxjuqrJWdB7Zw=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 10ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:53:36 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 146ms (Views: 139.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-02-04 16:53:37 -0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.8ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 265ms (Views: 263.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-02-04 16:53:39 -0800
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HENv/LDOXCBJ75GkrzOEXBCc84c2egAkVZ0Il+PBl1Wdcq7kpWGkqlWIakvQWtPK3gwkYKqF/lwrzClzyeMkhw==", "user"=>{"email"=>"nsuaysom@g.hmc.edu", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "nsuaysom@g.hmc.edu"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.8ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", 2017-02-05 00:53:40 UTC], ["last_sign_in_at", 2017-02-05 00:53:28 UTC], ["sign_in_count", 3], ["updated_at", 2017-02-05 00:53:40 UTC], ["id", 1]]
+  [1m[35m (13.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 169ms (ActiveRecord: 16.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:53:40 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 146ms (Views: 139.9ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-02-04 16:53:41 -0800
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"icdbJDE+KVlZy2DRpfdEZiwk+7e7Be22jD5tvRIknLVb1eOU7UAUb2AaKpJ0Hr+x2X2qNFL9xMu9cBBzNqN5+w=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:53:41 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 180ms (Views: 173.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-02-04 16:53:42 -0800
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 122ms (Views: 116.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-02-04 16:53:42 -0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.0ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 155ms (Views: 153.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-02-04 16:53:43 -0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.9ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 136ms (Views: 134.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-02-04 16:53:44 -0800
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 122ms (Views: 115.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:53:44 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 130ms (Views: 121.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:56:00 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 152ms (Views: 145.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-02-04 16:56:01 -0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.0ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 186ms (Views: 185.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-02-04 16:56:03 -0800
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HBkT9qzvrwzbPDZkmlHG4hmPl+quSd4QxW5yag8B7/2Q8z8QG2VdIBjn7R7F4itlXQSZrZsvB1ip9B3dJIvLTw==", "user"=>{"email"=>"nsuaysom@g.hmc.edu", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "nsuaysom@g.hmc.edu"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", 2017-02-05 00:56:03 UTC], ["last_sign_in_at", 2017-02-05 00:53:40 UTC], ["sign_in_count", 4], ["updated_at", 2017-02-05 00:56:03 UTC], ["id", 1]]
+  [1m[35m (15.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 177ms (ActiveRecord: 17.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:56:03 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 160ms (Views: 149.1ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-02-04 16:56:04 -0800
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"mRtrkepL1bzjGnbEOTne1CAXlr6UcAcWhy9QCq2/OlA2n5XqVEudkRtkf8t63zVjH9n1OwcdjHm4sEVbaZuDAQ=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:56:04 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 178ms (Views: 171.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-02-04 16:56:06 -0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.8ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 152ms (Views: 151.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-02-04 16:56:08 -0800
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"m/5dN6GiNgp2q+fWfpI+Avxt4yBsGZF7VtY/3H8fuHhg1Ib2AyG2sUk5x/UAoO5rFIDRYP0MDjIhwKhxeTTLoA==", "user"=>{"email"=>"nsuaysom@g.hmc.edu", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "nsuaysom@g.hmc.edu"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", 2017-02-05 00:56:08 UTC], ["last_sign_in_at", 2017-02-05 00:56:03 UTC], ["sign_in_count", 5], ["updated_at", 2017-02-05 00:56:08 UTC], ["id", 1]]
+  [1m[35m (17.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 176ms (ActiveRecord: 19.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:56:08 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 154ms (Views: 146.7ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-02-04 16:56:09 -0800
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"DezVz6P/KC3rRC4rV0bai3VixqF90K53lgD2fEqSDCTAIc8CfAVEoKSHdYg7XqlmPEOIUbQqmdF+yrc317n+ng=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:56:09 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 188ms (Views: 181.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-02-04 16:56:37 -0800
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (1.4ms)
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/mnt/c/Users/natch/Desktop/RubyInstagram/instagramAppNew/app/views/layouts/application.html.erb:32: syntax error, unexpected ')', expecting =>
+, {confirm: "Are you sure?"} );@output_buffer.safe_append='
+                              ^
+/mnt/c/Users/natch/Desktop/RubyInstagram/instagramAppNew/app/views/layouts/application.html.erb:34: syntax error, unexpected keyword_else, expecting ')'
+reeze;                    else 
+                              ^
+/mnt/c/Users/natch/Desktop/RubyInstagram/instagramAppNew/app/views/layouts/application.html.erb:41: syntax error, unexpected keyword_end, expecting ')'
+freeze;                    end 
+                              ^
+/mnt/c/Users/natch/Desktop/RubyInstagram/instagramAppNew/app/views/layouts/application.html.erb:66: syntax error, unexpected keyword_ensure, expecting ')'
+          ensure
+                ^
+/mnt/c/Users/natch/Desktop/RubyInstagram/instagramAppNew/app/views/layouts/application.html.erb:68: syntax error, unexpected keyword_end, expecting ')'
+          end
+             ^):
+  
+app/views/layouts/application.html.erb:32: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:34: syntax error, unexpected keyword_else, expecting ')'
+app/views/layouts/application.html.erb:41: syntax error, unexpected keyword_end, expecting ')'
+app/views/layouts/application.html.erb:66: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/layouts/application.html.erb:68: syntax error, unexpected keyword_end, expecting ')'
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.6ms)
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (68.2ms)
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:56:40 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.3ms)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/mnt/c/Users/natch/Desktop/RubyInstagram/instagramAppNew/app/views/layouts/application.html.erb:32: syntax error, unexpected ')', expecting =>
+, {confirm: "Are you sure?"} );@output_buffer.safe_append='
+                              ^
+/mnt/c/Users/natch/Desktop/RubyInstagram/instagramAppNew/app/views/layouts/application.html.erb:34: syntax error, unexpected keyword_else, expecting ')'
+reeze;                    else 
+                              ^
+/mnt/c/Users/natch/Desktop/RubyInstagram/instagramAppNew/app/views/layouts/application.html.erb:41: syntax error, unexpected keyword_end, expecting ')'
+freeze;                    end 
+                              ^
+/mnt/c/Users/natch/Desktop/RubyInstagram/instagramAppNew/app/views/layouts/application.html.erb:66: syntax error, unexpected keyword_ensure, expecting ')'
+          ensure
+                ^
+/mnt/c/Users/natch/Desktop/RubyInstagram/instagramAppNew/app/views/layouts/application.html.erb:68: syntax error, unexpected keyword_end, expecting ')'
+          end
+             ^):
+  
+app/views/layouts/application.html.erb:32: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:34: syntax error, unexpected keyword_else, expecting ')'
+app/views/layouts/application.html.erb:41: syntax error, unexpected keyword_end, expecting ')'
+app/views/layouts/application.html.erb:66: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/layouts/application.html.erb:68: syntax error, unexpected keyword_end, expecting ')'
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.1ms)
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (87.0ms)
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:57:01 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 148ms (Views: 140.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-02-04 16:57:03 -0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (2.0ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (73.2ms)
+Completed 200 OK in 334ms (Views: 332.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-02-04 16:57:04 -0800
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jT268OuS4zBOuoW9A0PbqSDGN+5HvHT/nlG+8nNpnOdB3r/QQ+wAvNdI0NBjizPAg1yqx80ntATWTh5X+oD+Mw==", "user"=>{"email"=>"nsuaysom@g.hmc.edu", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "nsuaysom@g.hmc.edu"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", 2017-02-05 00:57:05 UTC], ["last_sign_in_at", 2017-02-05 00:56:08 UTC], ["sign_in_count", 6], ["updated_at", 2017-02-05 00:57:05 UTC], ["id", 1]]
+  [1m[35m (13.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 171ms (ActiveRecord: 15.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:57:05 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 156ms (Views: 148.7ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-02-04 16:57:09 -0800
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"u47KfJE96zLkD4qWDw5CfRxY0os3yrv/RNslq0WcMLAX3qTDswb+AmAo+zjtzkkRCrnp4VBtaFg0oggfIhqiwA=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 16:57:09 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 163ms (Views: 157.2ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddAttachmentImageToPosts (20170205010126)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class AddAttachmentImageToPosts < ActiveRecord::Migration[4.2] (called from block in execute at /home/nsuaysom/.rvm/gems/ruby-2.4.0@global/gems/rake-12.0.0/lib/rake/task.rb:250)
+  [1m[35m (2.4ms)[0m  [1m[35mALTER TABLE "posts" ADD "image_file_name" varchar[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "posts" ADD "image_content_type" varchar[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "posts" ADD "image_file_size" integer[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "posts" ADD "image_updated_at" datetime[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170205010126"]]
+  [1m[35m (27.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+Started GET "/" for 127.0.0.1 at 2017-02-04 17:01:58 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 689ms (Views: 663.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 17:02:00 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 174ms (Views: 166.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-02-04 17:02:01 -0800
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (44.0ms)
+Completed 200 OK in 209ms (Views: 184.9ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-02-04 17:02:02 -0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.8ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (59.5ms)
+Completed 200 OK in 259ms (Views: 243.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-02-04 17:02:03 -0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (2.2ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 175ms (Views: 173.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-02-04 17:06:53 -0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.9ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 183ms (Views: 173.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 17:06:54 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 160ms (Views: 153.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 17:06:59 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 150ms (Views: 142.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 17:07:00 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 157ms (Views: 145.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-02-04 17:07:04 -0800
+Processing by PostsController#new as HTML
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant ApplicationRecord::Base):
+  
+app/models/post.rb:1:in `<top (required)>'
+app/controllers/posts_controller.rb:3:in `new'
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.7ms)
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (73.3ms)
+Started GET "/" for 127.0.0.1 at 2017-02-04 17:08:32 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 182ms (Views: 176.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-02-04 17:08:34 -0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.8ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 148ms (Views: 134.5ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-02-04 17:08:34 -0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.8ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 152ms (Views: 151.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-02-04 17:08:35 -0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.8ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 171ms (Views: 170.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-02-04 17:08:36 -0800
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uPUlydMEghx5qlZ5agnTIyEX3t/t4xjk4/jOOkMr0/4NAjfOGQnGgbYaumLCaAmR8087+kZjzm1UKO3toTpzFA==", "user"=>{"email"=>"nsuaysom@g.hmc.edu", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "nsuaysom@g.hmc.edu"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.3ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", 2017-02-05 01:08:36 UTC], ["last_sign_in_at", 2017-02-05 00:57:05 UTC], ["sign_in_count", 7], ["updated_at", 2017-02-05 01:08:36 UTC], ["id", 1]]
+  [1m[35m (23.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 360ms (ActiveRecord: 26.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 17:08:37 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 155ms (Views: 145.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-02-04 17:08:37 -0800
+Processing by PostsController#new as HTML
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant ApplicationRecord::Base):
+  
+app/models/post.rb:1:in `<top (required)>'
+app/controllers/posts_controller.rb:3:in `new'
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.1ms)
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (65.2ms)
+Started GET "/posts/new" for 127.0.0.1 at 2017-02-04 17:09:20 -0800
+Processing by PostsController#new as HTML
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant ApplicationRecord::Base):
+  
+app/models/post.rb:1:in `<top (required)>'
+app/controllers/posts_controller.rb:3:in `new'
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.5ms)
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (67.2ms)
+Started GET "/posts/new" for 127.0.0.1 at 2017-02-04 17:10:55 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (71.9ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 1012ms (Views: 965.9ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 17:11:00 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 153ms (Views: 142.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-02-04 17:11:00 -0800
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (1.5ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 163ms (Views: 153.0ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2017-02-04 17:15:54 -0800
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"U3CvOXeeI3y3i1EhhbBNjC+as+4VgJ4vDlXAPn+UNOT7ANC8huRiO0ngVv5mwy1AjRhz/iiiicS3I69l89lfSQ==", "post"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x000000039f49f0 @tempfile=#<Tempfile:/tmp/RackMultipart20170204-545-1t3paqy.ico>, @original_filename="m.ico", @content_type="image/x-icon", @headers="Content-Disposition: form-data; name=\"post[image]\"; filename=\"m.ico\"\r\nContent-Type: image/x-icon\r\n">, "description"=>"555"}, "commit"=>"Create Post"}
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/6f8f57715090da2632453988d9a1501b20170204-545-19ik0ju.ico[0]' 2>/dev/null
+Completed 500 Internal Server Error in 91ms (ActiveRecord: 1.7ms)
+
+
+  
+Paperclip::Errors::CommandNotFoundError (Could not run the `identify` command. Please install ImageMagick.):
+  
+app/controllers/posts_controller.rb:13:in `create'
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (7.5ms)
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (88.6ms)
+Started GET "/posts" for 127.0.0.1 at 2017-02-04 17:20:33 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 277ms (Views: 261.0ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-02-04 17:23:11 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 213ms (Views: 203.6ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-02-04 17:23:12 -0800
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (5.7ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 246ms (Views: 191.2ms | ActiveRecord: 2.7ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2017-02-04 17:23:21 -0800
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WhVFPEt8oMhEghxDrNJGlsBhUU2ZuDZGpFvEqC0DZcvyZTq5ugbhj7rpG5xPoSZaYuORXaSaIa0dLavzoU4OZg==", "post"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x007f06783bfbe8 @tempfile=#<Tempfile:/tmp/RackMultipart20170204-545-1y6qu57.ico>, @original_filename="m.ico", @content_type="image/x-icon", @headers="Content-Disposition: form-data; name=\"post[image]\"; filename=\"m.ico\"\r\nContent-Type: image/x-icon\r\n">, "description"=>"555"}, "commit"=>"Create Post"}
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/6f8f57715090da2632453988d9a1501b20170204-545-14ooud8.ico[0]' 2>/dev/null
+Completed 500 Internal Server Error in 67ms (ActiveRecord: 0.0ms)
+
+
+  
+Paperclip::Errors::CommandNotFoundError (Could not run the `identify` command. Please install ImageMagick.):
+  
+app/controllers/posts_controller.rb:14:in `create'
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.5ms)
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (86.7ms)
+Started GET "/posts" for 127.0.0.1 at 2017-02-04 17:23:30 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 169ms (Views: 157.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-02-04 17:23:33 -0800
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (2.0ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 184ms (Views: 175.2ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2017-02-04 17:23:56 -0800
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RbCJo3LSrhKUuxddBjnTP9ccZiCA6C5JKnjpkPRy/DbtwPYmg6jvVWrQEILlSrPzdZ6mML3KOaKTDobLeD+Xmw==", "post"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x007f067022e5e8 @tempfile=#<Tempfile:/tmp/RackMultipart20170204-545-c99vp9.JPG>, @original_filename="summary.JPG", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"post[image]\"; filename=\"summary.JPG\"\r\nContent-Type: image/jpeg\r\n">, "description"=>"555"}, "commit"=>"Create Post"}
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/a80da1282f2c775bbc5f2c92c836968b20170204-545-d1tv9s.JPG[0]' 2>/dev/null
+Completed 500 Internal Server Error in 66ms (ActiveRecord: 0.0ms)
+
+
+  
+Paperclip::Errors::CommandNotFoundError (Could not run the `identify` command. Please install ImageMagick.):
+  
+app/controllers/posts_controller.rb:14:in `create'
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.3ms)
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (87.1ms)
+Started GET "/posts" for 127.0.0.1 at 2017-02-04 17:24:38 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 173ms (Views: 164.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-02-04 17:26:26 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 199ms (Views: 181.1ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 17:26:28 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (1.2ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 199ms (Views: 176.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-02-04 17:26:29 -0800
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (2.3ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 182ms (Views: 165.0ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2017-02-04 17:26:34 -0800
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cG/zyepCXdszwZ04xCJgg/OxTPm28P0/xW1OuWKCYxbYH4xMGzgcnM2qmucnUQBPUTOM6YvS6tR8GyHi7s8Iuw==", "post"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x007f06784eb6c0 @tempfile=#<Tempfile:/tmp/RackMultipart20170204-545-29g2fw.mp3>, @original_filename="04_09ap.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"post[image]\"; filename=\"04_09ap.mp3\"\r\nContent-Type: audio/mp3\r\n">, "description"=>"555"}, "commit"=>"Create Post"}
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/25dd039322d3ed55e7c06b8110e6c2c320170204-545-heym41.mp3[0]' 2>/dev/null
+Completed 500 Internal Server Error in 73ms (ActiveRecord: 0.0ms)
+
+
+  
+Paperclip::Errors::CommandNotFoundError (Could not run the `identify` command. Please install ImageMagick.):
+  
+app/controllers/posts_controller.rb:15:in `create'
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (7.0ms)
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.6ms)
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.0ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (92.4ms)
+Started GET "/posts/1" for 127.0.0.1 at 2017-02-04 17:26:38 -0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 404 Not Found in 28ms (ActiveRecord: 0.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Post with 'id'=1):
+  
+app/controllers/posts_controller.rb:11:in `show'
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.2ms)
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (84.2ms)
+Started POST "/posts" for 127.0.0.1 at 2017-02-04 17:26:49 -0800
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZXzaPG6uS2i9WBWZ7J8X4oYLqrUDOI3EeA0egGlcdEC8rgQGxHnHUaacNBsbqygO4pwdt1yZRjlhZqycwt+PDQ==", "post"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x007f06787ebb68 @tempfile=#<Tempfile:/tmp/RackMultipart20170204-545-1trh5yk.mp3>, @original_filename="04_09ap.mp3", @content_type="audio/mp3", @headers="Content-Disposition: form-data; name=\"post[image]\"; filename=\"04_09ap.mp3\"\r\nContent-Type: audio/mp3\r\n">, "description"=>"555"}, "commit"=>"Create Post"}
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/25dd039322d3ed55e7c06b8110e6c2c320170204-545-18ixl4e.mp3[0]' 2>/dev/null
+Completed 500 Internal Server Error in 80ms (ActiveRecord: 0.0ms)
+
+
+  
+Paperclip::Errors::CommandNotFoundError (Could not run the `identify` command. Please install ImageMagick.):
+  
+app/controllers/posts_controller.rb:15:in `create'
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (9.0ms)
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.7ms)
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (94.4ms)
+Started GET "/" for 127.0.0.1 at 2017-02-04 17:29:57 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (5.0ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 858ms (Views: 821.9ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 17:30:01 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 159ms (Views: 145.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-02-04 17:30:03 -0800
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (54.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 222ms (Views: 200.2ms | ActiveRecord: 4.1ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2017-02-04 17:30:24 -0800
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Zr/kcL8jWQupEFjjcQhTQjBuyvRJelwvnTT8E7zv87POz5v1TlkYTFd7XzySezOOkuwK5HRYS8QkQpNIMKKYHg==", "post"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x007fe11c0cb368 @tempfile=#<Tempfile:/tmp/RackMultipart20170204-2977-atdty1.JPG>, @original_filename="summary.JPG", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"post[image]\"; filename=\"summary.JPG\"\r\nContent-Type: image/jpeg\r\n">, "description"=>"fdfdf"}, "commit"=>"Create Post"}
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/a80da1282f2c775bbc5f2c92c836968b20170204-2977-1duu9ki.JPG[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/a80da1282f2c775bbc5f2c92c836968b20170204-2977-1duu9ki.JPG[0]'
+Command :: convert '/tmp/a80da1282f2c775bbc5f2c92c836968b20170204-2977-1duu9ki.JPG[0]' -auto-orient -resize "500x500>" '/tmp/32696708a956904e36a4f80dffd8bf4e20170204-2977-6yosud'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/a80da1282f2c775bbc5f2c92c836968b20170204-2977-1duu9ki.JPG[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/a80da1282f2c775bbc5f2c92c836968b20170204-2977-1duu9ki.JPG[0]'
+Command :: convert '/tmp/a80da1282f2c775bbc5f2c92c836968b20170204-2977-1duu9ki.JPG[0]' -auto-orient -resize "100x100>" '/tmp/32696708a956904e36a4f80dffd8bf4e20170204-2977-134cj17'
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+Command :: file -b --mime '/tmp/a80da1282f2c775bbc5f2c92c836968b20170204-2977-f3wshh.JPG'
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "posts" ("description", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["description", "fdfdf"], ["created_at", 2017-02-05 01:30:25 UTC], ["updated_at", 2017-02-05 01:30:25 UTC], ["image_file_name", "summary.JPG"], ["image_content_type", "image/jpeg"], ["image_file_size", 143097], ["image_updated_at", 2017-02-05 01:30:24 UTC]]
+  [1m[35m (14.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 777ms (ActiveRecord: 15.8ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2017-02-04 17:30:25 -0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (33.0ms)
+Completed 500 Internal Server Error in 74ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `url' for #<Post:0x0000000502f350>):
+    1: <%= image_tag(@post.url{:medium}) %>
+    2: <br>
+    3: <%= @post.description %>
+  
+app/views/posts/show.html.erb:1:in `_app_views_posts_show_html_erb___2398423936101243621_42070400'
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (30.5ms)
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (10.3ms)
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (6.0ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (240.0ms)
+Started GET "/posts/1" for 127.0.0.1 at 2017-02-04 17:30:59 -0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 158ms (Views: 148.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 17:33:34 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (8.1ms)
+Completed 500 Internal Server Error in 46ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <% @post.each do |x| %>
+    2: 	<div class = "white">
+    3: 	<%= image_tag x.image.url(:medium) %>
+    4: 	<br>
+  
+app/views/posts/index.html.erb:1:in `_app_views_posts_index_html_erb__2412304430333211666_70302280030680'
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.2ms)
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (79.5ms)
+Started GET "/posts/1" for 127.0.0.1 at 2017-02-04 17:33:59 -0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 203ms (Views: 180.4ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 17:34:00 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (5.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 152ms (Views: 144.0ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-02-04 17:34:03 -0800
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (2.5ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 176ms (Views: 165.5ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2017-02-04 17:34:15 -0800
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zjX494/wOxBuBnArlx2WlQxWnNk9QRVtyz8Mre1V1iNmRYdyfop6V5Btd/R0bvZZrtRcyQBjAoZySWP2YRi9jg==", "post"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x007fe1142f56f0 @tempfile=#<Tempfile:/tmp/RackMultipart20170204-2977-1nrjvdk.JPG>, @original_filename="summary.JPG", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"post[image]\"; filename=\"summary.JPG\"\r\nContent-Type: image/jpeg\r\n">, "description"=>"555555555555"}, "commit"=>"Create Post"}
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/a80da1282f2c775bbc5f2c92c836968b20170204-2977-i9ulcd.JPG[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/a80da1282f2c775bbc5f2c92c836968b20170204-2977-i9ulcd.JPG[0]'
+Command :: convert '/tmp/a80da1282f2c775bbc5f2c92c836968b20170204-2977-i9ulcd.JPG[0]' -auto-orient -resize "500x500>" '/tmp/7c83168ecde522a144d04c67c1ff3b7e20170204-2977-1ch6krg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/a80da1282f2c775bbc5f2c92c836968b20170204-2977-i9ulcd.JPG[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/a80da1282f2c775bbc5f2c92c836968b20170204-2977-i9ulcd.JPG[0]'
+Command :: convert '/tmp/a80da1282f2c775bbc5f2c92c836968b20170204-2977-i9ulcd.JPG[0]' -auto-orient -resize "100x100>" '/tmp/7c83168ecde522a144d04c67c1ff3b7e20170204-2977-1j11sx6'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Command :: file -b --mime '/tmp/a80da1282f2c775bbc5f2c92c836968b20170204-2977-v6mt7d.JPG'
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "posts" ("description", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["description", "555555555555"], ["created_at", 2017-02-05 01:34:15 UTC], ["updated_at", 2017-02-05 01:34:15 UTC], ["image_file_name", "summary.JPG"], ["image_content_type", "image/jpeg"], ["image_file_size", 143097], ["image_updated_at", 2017-02-05 01:34:15 UTC]]
+  [1m[35m (22.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/2
+Completed 302 Found in 768ms (ActiveRecord: 24.1ms)
+
+
+Started GET "/posts/2" for 127.0.0.1 at 2017-02-04 17:34:16 -0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (1.8ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (2.6ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 162ms (Views: 148.7ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-02-04 17:34:18 -0800
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (1.9ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 175ms (Views: 162.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 17:34:19 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (2.8ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 189ms (Views: 168.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 17:39:34 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (13.0ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 202ms (Views: 181.7ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 17:39:35 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (2.6ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 276ms (Views: 267.2ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-02-04 17:39:38 -0800
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"9230NKn1vC3qeN5jNtEI8Iwf740Hfyel86vh4C3m+SguvyoOAyIwFPG8/+HB5Tcc6IhYj1je7FjqwFP8hmUCZQ=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 17ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 17:39:38 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 184ms (Views: 172.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-02-04 17:39:43 -0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.1ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (37.2ms)
+Completed 200 OK in 200ms (Views: 196.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 17:39:44 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 223ms (Views: 192.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-02-04 17:39:45 -0800
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 153ms (Views: 143.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-02-04 17:39:46 -0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.8ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 164ms (Views: 163.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-02-04 17:39:46 -0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.6ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 153ms (Views: 150.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-02-04 17:39:47 -0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.0ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (23.0ms)
+Completed 200 OK in 215ms (Views: 212.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-02-04 17:39:48 -0800
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 150ms (Views: 139.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-04 17:39:49 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 161ms (Views: 150.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-05 05:03:36 -0800
+Processing by PostsController#index as HTML
+Started GET "/" for 127.0.0.1 at 2017-02-05 05:03:36 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (4.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  [1m[36mPost Load (3.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (24.9ms)
+  Rendered posts/index.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 313ms (Views: 304.2ms | ActiveRecord: 3.4ms)
+
+
+Completed 200 OK in 402ms (Views: 373.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-02-05 05:03:39 -0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.4ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 175ms (Views: 168.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-02-05 05:03:41 -0800
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RcJoMBrIjMQBGREMCbinloe4G9e+WtUOyKaqfuJXSsa9AUx5ZH61uFtFnSNW4yUtijMHiOnicgA7uqT0FCO1ww==", "user"=>{"email"=>"nsuaysom@g.hmc.edu", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "nsuaysom@g.hmc.edu"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", 2017-02-05 13:03:41 UTC], ["last_sign_in_at", 2017-02-05 01:08:36 UTC], ["sign_in_count", 8], ["updated_at", 2017-02-05 13:03:41 UTC], ["id", 1]]
+  [1m[35m (15.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 301ms (ActiveRecord: 17.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-05 05:03:41 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (4.9ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 160ms (Views: 152.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-02-05 05:03:44 -0800
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (8.9ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 184ms (Views: 166.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-05 05:03:45 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (2.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 169ms (Views: 157.8ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-02-05 05:03:47 -0800
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"bQC5ofgtYxvov1svZ90QoMpJ8IpSRW8jVRfHdDGc1FDWYwqv2ChzqXmqVybq94UkLtMJO9H648pnd7IhC1oSGA=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 15ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-05 05:03:47 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 158ms (Views: 148.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-05 05:03:48 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 165ms (Views: 150.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-02-05 05:03:49 -0800
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 136ms (Views: 125.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-02-05 05:03:50 -0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.1ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 156ms (Views: 150.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-02-05 05:03:50 -0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.9ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 147ms (Views: 146.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-05 05:04:23 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (25.7ms)
+Completed 200 OK in 1285ms (Views: 1246.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-05 05:08:13 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 263ms (Views: 254.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-05 05:08:17 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 207ms (Views: 197.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-05 14:07:11 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 215ms (Views: 201.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-05 15:13:53 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 189ms (Views: 181.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-07 09:53:37 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (50.2ms)
+Completed 200 OK in 1783ms (Views: 1730.4ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-02-07 09:53:45 -0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.5ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (197.7ms)
+Completed 200 OK in 394ms (Views: 374.8ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-02-07 09:53:47 -0800
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zX83ozcb6VkFLHMRNJgn3hRGFQa/L+qqF83DywyGiVj4m0jWxN0bu3YmNd0K5yqKTIsIJ+UQ8R8cZlCZx4B2UQ==", "user"=>{"email"=>"nsuaysom@g.hmc.edu", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "nsuaysom@g.hmc.edu"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", 2017-02-07 17:53:47 UTC], ["last_sign_in_at", 2017-02-05 13:03:41 UTC], ["sign_in_count", 9], ["updated_at", 2017-02-07 17:53:47 UTC], ["id", 1]]
+  [1m[35m (14.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 277ms (ActiveRecord: 16.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-07 09:53:47 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (2.9ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 165ms (Views: 156.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-07 09:53:50 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (2.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 178ms (Views: 168.7ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-02-07 09:53:57 -0800
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"OOS2hG1N/5U++CaexxanpmR//lXS4qqN7YKpXK2Jc4YsaF0VTnXBZ0UcT1wYP14XTFJB4++a4EwVVJz25mz+UA=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 29ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-07 09:53:57 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 163ms (Views: 156.0ms | ActiveRecord: 0.4ms)
+
+
