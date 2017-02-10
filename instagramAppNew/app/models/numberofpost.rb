@@ -1,0 +1,2 @@
+class Numberofpost < ApplicationRecord
+end

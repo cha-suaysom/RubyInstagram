@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   end
 
   def index
+    @numberofposts = Numberofpost.all
     @posts = Post.all
   end
 

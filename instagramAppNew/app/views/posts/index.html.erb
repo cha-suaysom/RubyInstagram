@@ -1,4 +1,4 @@
-<% @posts.each do |x| %>
+<% @posts.sort_by{|t| - t.created_at.to_i}.first(@numberofposts.sort_by{|t| - t.created_at.to_i}[0].postnum.to_i).each do |x| %>
 	<div class="white">
 	<%= image_tag x.image.url(:medium) %>
 	<br>

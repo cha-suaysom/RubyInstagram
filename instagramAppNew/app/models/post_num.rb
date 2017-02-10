@@ -1,0 +1,2 @@
+class PostNum < ApplicationRecord
+end
