@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170210115340) do
+ActiveRecord::Schema.define(version: 20170210204915) do
 
   create_table "numberofposts", force: :cascade do |t|
     t.integer  "postnum"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "preferredname"
   end
 
   create_table "post_nums", force: :cascade do |t|

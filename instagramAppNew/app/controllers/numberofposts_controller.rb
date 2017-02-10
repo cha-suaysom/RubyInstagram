@@ -22,6 +22,6 @@ class NumberofpostsController < ApplicationController
 
 	private
 	  	def permit_numberofpost
-	  		params.require(:numberofpost).permit(:postnum)
+	  		params.require(:numberofpost).permit(:postnum,:preferredname)
 	  	end
 end
