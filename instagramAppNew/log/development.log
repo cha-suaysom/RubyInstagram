@@ -2163,3 +2163,221 @@ Processing by PostsController#index as HTML
 Completed 200 OK in 163ms (Views: 156.0ms | ActiveRecord: 0.4ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-02-10 15:17:38 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (24.8ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 981ms (Views: 943.1ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-10 15:18:55 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 194ms (Views: 187.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-02-10 15:19:01 -0800
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (71.5ms)
+Completed 200 OK in 257ms (Views: 249.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2017-02-10 15:19:06 -0800
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RjbnHtimCZUmMh5GT/KAHwA2e4ct2O4DHjiQg4YEMFo8hYzr8yyLCL+uhHsP44zoAcnuYRpxd8O9FTfzaL8/vA==", "post"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x007f440da34c80 @tempfile=#<Tempfile:/tmp/RackMultipart20170210-1173-1sn19d8.png>, @original_filename="ABC.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"post[image]\"; filename=\"ABC.png\"\r\nContent-Type: image/png\r\n">, "description"=>"ABC"}, "commit"=>"Create Post"}
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/902fbdd2b1df0c4f70b4a5d23525e93220170210-1173-2890au.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/902fbdd2b1df0c4f70b4a5d23525e93220170210-1173-2890au.png[0]'
+Command :: convert '/tmp/902fbdd2b1df0c4f70b4a5d23525e93220170210-1173-2890au.png[0]' -auto-orient -resize "500x500>" '/tmp/56a68c0659e5bd8544c74c4e097de6a620170210-1173-18jmeq8'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/902fbdd2b1df0c4f70b4a5d23525e93220170210-1173-2890au.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/902fbdd2b1df0c4f70b4a5d23525e93220170210-1173-2890au.png[0]'
+Command :: convert '/tmp/902fbdd2b1df0c4f70b4a5d23525e93220170210-1173-2890au.png[0]' -auto-orient -resize "100x100>" '/tmp/56a68c0659e5bd8544c74c4e097de6a620170210-1173-1nrzjpy'
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+Command :: file -b --mime '/tmp/902fbdd2b1df0c4f70b4a5d23525e93220170210-1173-6xecrn.png'
+  [1m[35mSQL (2.1ms)[0m  [1m[32mINSERT INTO "posts" ("description", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["description", "ABC"], ["created_at", 2017-02-10 23:19:06 UTC], ["updated_at", 2017-02-10 23:19:06 UTC], ["image_file_name", "ABC.png"], ["image_content_type", "image/png"], ["image_file_size", 4854], ["image_updated_at", 2017-02-10 23:19:06 UTC]]
+  [1m[35m (16.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 708ms (ActiveRecord: 19.0ms)
+
+
+Started GET "/posts/3" for 127.0.0.1 at 2017-02-10 15:19:06 -0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 181ms (Views: 160.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-10 15:19:09 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 164ms (Views: 152.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-02-10 15:20:49 -0800
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 175ms (Views: 166.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2017-02-10 15:21:39 -0800
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mAFPj+s9keN9NPZTjwGh1eKrXzByYgpNNtpldx/3rmHisiR6wLcTfuSobG7PEK0i41TK1kXLk42V98IH8Uyhhw==", "post"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x007f440c251d20 @tempfile=#<Tempfile:/tmp/RackMultipart20170210-1173-ednaz.png>, @original_filename="ABC.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"post[image]\"; filename=\"ABC.png\"\r\nContent-Type: image/png\r\n">, "description"=>"ABC"}, "commit"=>"Create Post"}
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/902fbdd2b1df0c4f70b4a5d23525e93220170210-1173-euoxyi.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/902fbdd2b1df0c4f70b4a5d23525e93220170210-1173-euoxyi.png[0]'
+Command :: convert '/tmp/902fbdd2b1df0c4f70b4a5d23525e93220170210-1173-euoxyi.png[0]' -auto-orient -resize "500x500>" '/tmp/bf7b7cc481df25890a74907e4693a61420170210-1173-wav3td'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/902fbdd2b1df0c4f70b4a5d23525e93220170210-1173-euoxyi.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/902fbdd2b1df0c4f70b4a5d23525e93220170210-1173-euoxyi.png[0]'
+Command :: convert '/tmp/902fbdd2b1df0c4f70b4a5d23525e93220170210-1173-euoxyi.png[0]' -auto-orient -resize "100x100>" '/tmp/bf7b7cc481df25890a74907e4693a61420170210-1173-i1p6lv'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Command :: file -b --mime '/tmp/902fbdd2b1df0c4f70b4a5d23525e93220170210-1173-zgth91.png'
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "posts" ("description", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["description", "ABC"], ["created_at", 2017-02-10 23:21:40 UTC], ["updated_at", 2017-02-10 23:21:40 UTC], ["image_file_name", "ABC.png"], ["image_content_type", "image/png"], ["image_file_size", 4854], ["image_updated_at", 2017-02-10 23:21:39 UTC]]
+  [1m[35m (20.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/4
+Completed 302 Found in 665ms (ActiveRecord: 21.9ms)
+
+
+Started GET "/posts/4" for 127.0.0.1 at 2017-02-10 15:21:40 -0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 190ms (Views: 176.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-02-10 15:22:39 -0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.1ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (39.5ms)
+Completed 200 OK in 229ms (Views: 215.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-02-10 15:23:22 -0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.8ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 185ms (Views: 183.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-02-10 15:24:01 -0800
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1YMpo2tykGeBYSkHTyc9Xc0/o+WgFXd1Oalbsw9M9CslwKpmLAzeyDil8RhEUwZCx9swIE3jOFUnizZeWqXq7Q==", "user"=>{"email"=>"abc@hotmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "abc@hotmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 6ms (ActiveRecord: 0.5ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1YMpo2tykGeBYSkHTyc9Xc0/o+WgFXd1Oalbsw9M9CslwKpmLAzeyDil8RhEUwZCx9swIE3jOFUnizZeWqXq7Q==", "user"=>{"email"=>"abc@hotmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.9ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 364ms (Views: 184.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-02-10 15:24:04 -0800
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DShCGt+NQABf3bggpf7iXJDQgOT2OpYULKyhg56rHL0Y820GaSvo78DmBjYoD8Q8KvSrWNauvMnlE290GZGGIw==", "user"=>{"email"=>"abc@hotmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "abc@hotmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "abc@hotmail.com"], ["encrypted_password", "$2a$11$EaoNWg8wCj8GmwIUvSHQn.Kdk2mwP1V4zisjczFd4qMDTMvEqbBJS"], ["created_at", 2017-02-10 23:24:05 UTC], ["updated_at", 2017-02-10 23:24:05 UTC]]
+  [1m[35m (24.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.9ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", 2017-02-10 23:24:05 UTC], ["last_sign_in_at", 2017-02-10 23:24:05 UTC], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", 2017-02-10 23:24:05 UTC], ["id", 2]]
+  [1m[35m (22.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 259ms (ActiveRecord: 50.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-10 15:24:05 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.5ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 199ms (Views: 187.7ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-02-10 15:24:09 -0800
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SiBiHGlmcIGJV1SYCDXU4V3iWvtxGm6CjWoQuspMyM5f+00A38DYbhZs6o6FxPKB58ZxR1GORF9E1d5NTXZSUA==", "user"=>{"email"=>"abc@hotmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 11ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-10 15:24:09 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (4.1ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 226ms (Views: 216.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-02-10 15:24:11 -0800
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-02-10 15:24:17 -0800
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"3sQw/EiFTgJgLRwieYoqFrv/mBjq5TjtBJJn1SvYPsLLHx/g/iPm7f8WojT0ewx2AduzpMpxEjDNLakirOKkXA=="}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 26ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-10 15:24:17 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 167ms (Views: 155.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-02-10 15:24:18 -0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (3.0ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 293ms (Views: 290.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-02-10 15:25:26 -0800
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Wq+YLfWJp6HAyATtOOHmUGlSZp4Aht+oFc0/scJ8JBnqQnDXoh7gI44L6Xm0y/1zfiV/ia9B9J37U0nbKJPeOg==", "user"=>{"email"=>"abc@hotmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "abc@hotmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", 2017-02-10 23:25:26 UTC], ["sign_in_count", 2], ["updated_at", 2017-02-10 23:25:26 UTC], ["id", 2]]
+  [1m[35m (13.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 166ms (ActiveRecord: 15.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-10 15:25:26 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (4.0ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 167ms (Views: 159.9ms | ActiveRecord: 0.8ms)
+
+
