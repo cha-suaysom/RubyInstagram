@@ -9850,3 +9850,168 @@ Processing by PostsController#index as HTML
 Completed 200 OK in 219ms (Views: 199.2ms | ActiveRecord: 1.3ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-02-10 15:29:30 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  [1m[36mNumberofpost Load (0.6ms)[0m  [1m[34mSELECT "numberofposts".* FROM "numberofposts"[0m
+  Rendered posts/index.html.erb within layouts/application (46.0ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 980ms (Views: 933.6ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-02-10 15:30:05 -0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.3ms)
+  Rendered /home/nsuaysom/.rvm/gems/ruby-2.4.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (81.8ms)
+Completed 200 OK in 281ms (Views: 276.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-02-10 15:30:07 -0800
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mxP8kRLJJrza5aYMsfaLYL3aXcATOGA/B51wmd3awthZolJcxjonzMT4Vsk/Jpsj5YTeFV+NEdiAnbi9ZXPEzQ==", "user"=>{"email"=>"nsuaysom@g.hmc.edu", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "nsuaysom@g.hmc.edu"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", 2017-02-10 23:30:08 UTC], ["last_sign_in_at", 2017-02-10 21:11:15 UTC], ["sign_in_count", 13], ["updated_at", 2017-02-10 23:30:08 UTC], ["id", 1]]
+  [1m[35m (18.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 236ms (ActiveRecord: 20.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-10 15:30:08 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  [1m[36mNumberofpost Load (0.4ms)[0m  [1m[34mSELECT "numberofposts".* FROM "numberofposts"[0m
+  Rendered posts/index.html.erb within layouts/application (16.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 202ms (Views: 193.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/numberofposts/new" for 127.0.0.1 at 2017-02-10 15:30:23 -0800
+Processing by NumberofpostsController#new as HTML
+  Rendering numberofposts/new.html.erb within layouts/application
+  Rendered numberofposts/new.html.erb within layouts/application (2.7ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 199ms (Views: 190.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-02-10 15:31:21 -0800
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (10.0ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 196ms (Views: 187.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-10 15:31:23 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  [1m[36mNumberofpost Load (0.8ms)[0m  [1m[34mSELECT "numberofposts".* FROM "numberofposts"[0m
+  Rendered posts/index.html.erb within layouts/application (20.7ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 259ms (Views: 230.2ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-02-10 15:32:00 -0800
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (3.3ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 181ms (Views: 173.2ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2017-02-10 15:32:09 -0800
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7numzGhArRaSmePvHGF+1j32fYyrHZzQDPWp2a8n7mNqkOp/tqfHGvAHX1AKfwx9sEQ6EmfWc9xNDe3DunoRqg==", "post"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x007f7278abef40 @tempfile=#<Tempfile:/tmp/RackMultipart20170210-1258-jh774p.png>, @original_filename="TweetDistribution.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"post[image]\"; filename=\"TweetDistribution.png\"\r\nContent-Type: image/png\r\n">, "description"=>"Circles"}, "commit"=>"Create Post"}
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/82b51d08b770970e051eb6bcf090305820170210-1258-1p34m6z.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/82b51d08b770970e051eb6bcf090305820170210-1258-1p34m6z.png[0]'
+Command :: convert '/tmp/82b51d08b770970e051eb6bcf090305820170210-1258-1p34m6z.png[0]' -auto-orient -resize "500x500>" '/tmp/df0c68a71a0416ef3bb21e41973bfe0b20170210-1258-11arq8h'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/82b51d08b770970e051eb6bcf090305820170210-1258-1p34m6z.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/82b51d08b770970e051eb6bcf090305820170210-1258-1p34m6z.png[0]'
+Command :: convert '/tmp/82b51d08b770970e051eb6bcf090305820170210-1258-1p34m6z.png[0]' -auto-orient -resize "100x100>" '/tmp/df0c68a71a0416ef3bb21e41973bfe0b20170210-1258-ihzst1'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Command :: file -b --mime '/tmp/82b51d08b770970e051eb6bcf090305820170210-1258-fuky4l.png'
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "posts" ("description", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["description", "Circles"], ["created_at", 2017-02-10 23:32:09 UTC], ["updated_at", 2017-02-10 23:32:09 UTC], ["image_file_name", "TweetDistribution.png"], ["image_content_type", "image/png"], ["image_file_size", 7887], ["image_updated_at", 2017-02-10 23:32:09 UTC]]
+  [1m[35m (18.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/22
+Completed 302 Found in 704ms (ActiveRecord: 20.3ms)
+
+
+Started GET "/posts/22" for 127.0.0.1 at 2017-02-10 15:32:09 -0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mPost Load (2.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 224ms (Views: 204.5ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-10 15:32:12 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  [1m[36mNumberofpost Load (0.7ms)[0m  [1m[34mSELECT "numberofposts".* FROM "numberofposts"[0m
+  Rendered posts/index.html.erb within layouts/application (14.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 181ms (Views: 168.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/numberofposts/new" for 127.0.0.1 at 2017-02-10 15:32:18 -0800
+Processing by NumberofpostsController#new as HTML
+  Rendering numberofposts/new.html.erb within layouts/application
+  Rendered numberofposts/new.html.erb within layouts/application (1.9ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 198ms (Views: 190.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-10 15:32:20 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  [1m[36mNumberofpost Load (0.6ms)[0m  [1m[34mSELECT "numberofposts".* FROM "numberofposts"[0m
+  Rendered posts/index.html.erb within layouts/application (17.0ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 218ms (Views: 205.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/numberofposts/new" for 127.0.0.1 at 2017-02-10 15:32:22 -0800
+Processing by NumberofpostsController#new as HTML
+  Rendering numberofposts/new.html.erb within layouts/application
+  Rendered numberofposts/new.html.erb within layouts/application (1.7ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 193ms (Views: 179.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-10 15:32:23 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  [1m[36mNumberofpost Load (0.5ms)[0m  [1m[34mSELECT "numberofposts".* FROM "numberofposts"[0m
+  Rendered posts/index.html.erb within layouts/application (15.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 190ms (Views: 176.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/numberofposts/new" for 127.0.0.1 at 2017-02-10 15:32:31 -0800
+Processing by NumberofpostsController#new as HTML
+  Rendering numberofposts/new.html.erb within layouts/application
+  Rendered numberofposts/new.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 196ms (Views: 184.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-10 15:32:58 -0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  [1m[36mNumberofpost Load (1.3ms)[0m  [1m[34mSELECT "numberofposts".* FROM "numberofposts"[0m
+  Rendered posts/index.html.erb within layouts/application (18.4ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 209ms (Views: 199.8ms | ActiveRecord: 2.6ms)
+
+
