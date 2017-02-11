@@ -20,4 +20,24 @@ This picture showed with the sample email and password is the signup page.
 
 ![alt tag](https://github.com/hmc-cs-nsuaysom/RubyInstagram/blob/master/Signup.JPG)
 
+After signing up, the user can login directly. 
+
+![alt tag](https://github.com/hmc-cs-nsuaysom/RubyInstagram/blob/master/Login.JPG)
+
+After logging in, the users have options to log out, and the popup will asks for confirmation.
+
+![alt tag](https://github.com/hmc-cs-nsuaysom/RubyInstagram/blob/master/Logout.JPG)
+
+When the user is signed in, they can create a post with descriptions.
+
+![alt tag](https://github.com/hmc-cs-nsuaysom/RubyInstagram/blob/master/Createpost.JPG)
+
+The user will see what the post will look like on the main page.
+
+![alt tag](https://github.com/hmc-cs-nsuaysom/RubyInstagram/blob/master/PostSuccess.JPG)
+
+Then the post will appear at the bottom of the main page.
+
+![alt tag](https://github.com/hmc-cs-nsuaysom/RubyInstagram/blob/master/Post.JPG)
+
 * (extra credit) any other functionality or creative additions you included (e.g., Bootstrap); remember to cite your resources/references.
