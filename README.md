@@ -18,6 +18,6 @@ All pictures and their descriptions are posted on the front page.
 
 This picture showed with the sample email and password is the signup page. 
 
-![alt tag](RubyInstagram/Signup.JPG)
+![alt tag](https://github.com/hmc-cs-nsuaysom/RubyInstagram/blob/master/Signup.JPG)
 
 * (extra credit) any other functionality or creative additions you included (e.g., Bootstrap); remember to cite your resources/references.
